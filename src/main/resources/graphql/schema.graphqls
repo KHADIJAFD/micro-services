@@ -1,0 +1,26 @@
+type Query{
+  allAccounts:[BankAccount]
+  accountsById(id:Int):BankAccount
+    allCustomers:[Customer]
+}
+type Mutation{
+    saveBankAccount(bankAccount:BankAccountDto):BankAccount
+    updateAccount(id:String,bankAccountDto:BankAccountDto):BankAccount
+    deleteById(id:String):Boolean
+}
+input BankAccountDto{
+    balance:Float,
+    currency:String,
+    createdAt:String
+}
+type BankAccount{
+    id:Int,
+    balance:Float,
+    currency:String,
+    createdAt:String,
+}
+type Customer{
+    id:Float
+    name:String
+    bankAccounts:[BankAccount]
+}
